@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'NeueBit';
+  src: url('assets/Bitmap Font Pack/PPNeueBit-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Mondwest';
+  src: url('assets/Bitmap Font Pack/PPMondwest-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Special-Elite';
+    src: url('assets/Pixelify_Sans,Special_Elite/Special_Elite/SpecialElite-Regular.ttf') format('truetype');
+}
+
+body {
+    background-color: rgb(179, 171, 138);
+    cursor: url('./assets/cursor-hover.png'), auto;
+}
+
+#container {
+    display: grid;
+    margin: 0.5em;
+    /* background-color: rgb(174, 173, 174); */
+    grid-template-rows: 10% 3fr 1fr 2fr 2fr 2fr;
+}
+
+.div1{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    color: rgb(73, 58, 90);
+    place-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.div2{
+    display: grid;
+    place-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 680px) {
+        #container {
+            display: grid;
+            margin: 0.5em;
+            /* background-color: rgb(174, 173, 174); */
+            grid-template-rows: 1fr 1fr 1fr 2fr 2fr 2fr;
+        }
+    }
+
+
+.div3{
+    display: grid;
+    place-content: center;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.div4 {
+    display: grid;
+    place-content: center;
+}
+
+.div5 {
+    display: grid;
+    place-content: center;
+}
+
+.div6 {
+    display: grid;
+    place-content: center;
+}
+
+img {
+    width: clamp(100%, 80%, 100%);
+}
