@@ -15,14 +15,80 @@
 
 body {
     background-color: rgb(179, 171, 138);
-    cursor: url('./assets/cursor-hover.png'), auto;
+    /* cursor: url('./assets/cursor-hover.png'), auto; */
+}
+
+#music_player {
+    display: grid;
+    position: fixed;
+    top: 20%;
+    right: 0;
+    height:500px;
+    width: 40%;
+    margin-right: 10%;
+    background-color: rgb(73, 58, 90);
+    grid-template-rows: 1fr 5fr 2fr;
+}
+
+.window {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid rgb(48, 38, 59);
+    background-image: linear-gradient(to bottom, rgb(73, 58, 90), rgb(48, 38, 59));
+}
+
+.window-button {
+    padding-right: 5px;
+    font-size: 2rem;
+}
+
+button {
+    font-family: 'Mondwest';
+    background-color: rgb(73, 58, 90);
+    color: rgb(179, 171, 138);
+}
+
+.row {
+    width: 30%;
+    height: auto;
+    font-size: 2.6rem;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.album-cover {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.text {
+    display: flex;
+    grid-area: 1 / 2 / 2 / 3;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+h2 {
+    font-family: 'Mondwest';
+}
+
+.album-cover > img {
+    transform: scale(0.8);
+    background-color: rgb(49, 63, 77);
 }
 
 #container {
     display: grid;
-    margin: 0.5em;
-    /* background-color: rgb(174, 173, 174); */
-    grid-template-rows: 10% 3fr 1fr 2fr 2fr 2fr;
+    gap: 0;
+    grid-template-rows: 5% 4% 2fr 1fr 1fr 1fr 1fr;
 }
 
 .div1{
@@ -31,10 +97,20 @@ body {
     color: rgb(73, 58, 90);
     place-content: center;
     margin: 0;
-    padding: 0;
+    padding: 5% 5% 0 0;
 }
 
-.div2{
+
+.div2 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+    font-family: 'Mondwest';
+    color: rgb(73, 58, 90);
+    max-height: 100%;
+}
+
+.div3{
     display: grid;
     place-content: center;
     grid-template-columns: 1fr 1fr 1fr;
@@ -45,20 +121,29 @@ body {
             display: grid;
             margin: 0.5em;
             /* background-color: rgb(174, 173, 174); */
-            grid-template-rows: 1fr 1fr 1fr 2fr 2fr 2fr;
+            grid-template-rows: 1fr 4% 2fr 1fr 2fr 2fr 2fr;
+        }
+
+        .div2 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: start;
+            font-family: 'Mondwest';
+            color: rgb(73, 58, 90);
+            max-height: 100%;
+        }
+
+        .row {
+            font-size: 0.9rem;
+            height: 70%;
         }
     }
 
 
-.div3{
+.div4{
     display: grid;
     place-content: center;
     grid-template-rows: 1fr 1fr 1fr;
-}
-
-.div4 {
-    display: grid;
-    place-content: center;
 }
 
 .div5 {
@@ -67,6 +152,11 @@ body {
 }
 
 .div6 {
+    display: grid;
+    place-content: center;
+}
+
+.div7 {
     display: grid;
     place-content: center;
 }

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ☃ -->
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -6,28 +7,50 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>phantasmagoria ver. 0</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
   </head>
   <body>
+    <div id="music_player">
+      <div class="window">
+        <button type="button" class="window-button">×</button>
+      </div>
+      <div class="details">
+        <div class="album-cover">
+          <img src="assets/cd.gif">
+        </div>
+        <div class="text">
+          <h2>Song name</h2>
+          <h2>Artist name</h2>
+        </div>
+      </div>
+      <div class="slider">
+
+      </div>
+    </div>
     <div id="container">
         <div class="div1">
             <img src="assets/logo.png">
             <img src="assets/title.png">
         </div>
         <div class="div2">
+          <button type="button" class="row show-button">♫ music player</button>
+          <button type="button" class="row">⛾ aeroghurt's web</button>
+        </div>
+        <div class="div3">
              <img class="kewl" src="assets/ace-dot.png">
              <img class="kewl" src="assets/nique-dot.png">
              <img class="kewl" src="assets/hue-dot.png">
         </div>
-        <div class="div3">
+        <div class="div4">
             <p>made with godot</p>
             <p>no ai used for visuals</p>
             <p>completely free-to-play</p>
         </div>
-        
-        <div class="div4"><p>nique walking</p></div>
-        <div class="div5"><p>ace walking</p></div>
-        <div class="div6"><p>hue walking</p></div>
+        <div class="div5"><p>nique walking</p></div>
+        <div class="div6"><p>ace walking</p></div>
+        <div class="div7"><p>hue walking</p></div>
     </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
