@@ -28,6 +28,9 @@ body {
     margin-right: 10%;
     background-color: rgb(73, 58, 90);
     grid-template-rows: 1fr 5fr 2fr;
+    border: 2px solid rgb(48, 38, 59);
+    color: rgb(179, 171, 138);
+    z-index: 999;
 }
 
 .window {
@@ -81,7 +84,7 @@ h2 {
 }
 
 .album-cover > img {
-    transform: scale(0.8);
+    transform: scale(0.7);
     background-color: rgb(49, 63, 77);
 }
 
@@ -163,4 +166,24 @@ h2 {
 
 img {
     width: clamp(100%, 80%, 100%);
+}
+
+.blackgrit {
+    background: var(--blackGrit);
+    background-size: 400px;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.whitegrit {
+    background: var(--whiteGrit);
+    background-size: 200px;
+    /* padding: 2rem 0; */
+    position: relative;
+}
+
+
+:root {
+    --blackGrit: url(assets/blackgrit.webp);
+    --whiteGrit: url(assets/whitegrit.png);
 }

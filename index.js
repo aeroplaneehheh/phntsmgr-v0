@@ -1,7 +1,7 @@
 $( function() {
     $("#music_player").hide()
 })
-$(".window-button").click(function() {
+$(".window>button").click(function() {
     $("#music_player").hide();
 })
 $(".show-button").click(function() {
