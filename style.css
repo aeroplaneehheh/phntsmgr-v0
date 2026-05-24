@@ -33,14 +33,14 @@ body {
 .window {
     display: flex;
     justify-content: end;
+    padding-right: 5px;
     align-items: center;
     height: 100%;
     border-bottom: 2px solid rgb(48, 38, 59);
     background-image: linear-gradient(to bottom, rgb(73, 58, 90), rgb(48, 38, 59));
 }
 
-.window-button {
-    padding-right: 5px;
+.window > button {
     font-size: 2rem;
 }
 
