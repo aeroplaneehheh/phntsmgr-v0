@@ -31,6 +31,7 @@ body {
     border: 2px solid rgb(48, 38, 59);
     color: rgb(179, 171, 138);
     z-index: 999;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .window {
@@ -186,4 +187,17 @@ img {
 :root {
     --blackGrit: url(assets/blackgrit.webp);
     --whiteGrit: url(assets/whitegrit.png);
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.slider-color {
+    height: 20%;
+    width: 80%;
+    border: 2px solid rgb(48, 38, 59);
+    background-color: transparent;
 }
