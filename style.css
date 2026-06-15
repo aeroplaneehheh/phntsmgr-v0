@@ -205,7 +205,7 @@ img {
     justify-content: center;
     align-items: start;
     width: 100%;
-    height: 90%;
+    height: 100%;
 }
 
 .slider {
@@ -226,6 +226,7 @@ img {
 .slider-color {
     width: 80%;
     height: 100%;
+    background: linear-gradient(to right, rgb(179, 171, 138) 1%, transparent 99%);
     outline: 2px solid;
 }
 
@@ -234,5 +235,4 @@ img {
     transform: scale(0.6);
     justify-content: center;
     margin-top: -8%;
-    object-fit: cover;
 }
