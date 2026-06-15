@@ -226,7 +226,7 @@ img {
 .slider-color {
     width: 80%;
     height: 100%;
-    background: linear-gradient(to right, rgb(179, 171, 138) 1%, transparent 99%);
+    background: linear-gradient(to right, rgb(179, 171, 138) 0%, transparent 100%);
     outline: 2px solid;
 }
 
