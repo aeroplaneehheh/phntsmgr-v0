@@ -6,6 +6,7 @@ let endTime = $(".end_time");
 
 let trackIndex = 0;
 let isPlaying = false;
+let updateTimer;
 let currentTrack = document.createElement('audio');
 
 let trackList = [
@@ -92,10 +93,20 @@ function loadTrack(trackIndex) {
     $(trackName).text(trackList[trackIndex].name);
     $(artist).text(trackList[trackIndex].artist);
 
-    updateTimer = setInterval(seekUpdate, 1000);
+    updateTimer = setInterval(seekUpdate, 500);
     $(currentTrack).on("ended", function() {
         nextTrack();
     });
+    $(".backward").click(function() {
+        previousTrack();
+    })
+    $(".forward").click(function() {
+        nextTrack();
+    })
+    $(playPauseBtn).click(function() {
+       playPauseTrack();
+    })
+    
 }
 
 function resetValues() {
@@ -104,24 +115,27 @@ function resetValues() {
 }
 
 function playPauseTrack() {
-    if (! isPlaying) playTrack();
-    else playPauseTrack();
+    if (! isPlaying){
+        playTrack();
+    }
+    else pauseTrack();
+    console.log(isPlaying);
 }
 
 function playTrack() {
     currentTrack.play();
     isPlaying = true;
-    $(".play_pause_btn").attr("src", "assets/play.png");
+    $(playPauseBtn).attr("src", "assets/pause.png");
 }
 
 function pauseTrack() {
     currentTrack.pause();
     isPlaying = false;
-    $(".play_pause_btn").attr("src", 'assets/stop.png');
+    $(playPauseBtn).attr("src", 'assets/play.png');
 }
 
 function nextTrack() {
-    if (trackIndex < track_list.length - 1) {
+    if (trackIndex < trackList.length - 1) {
         trackIndex += 1;
     }
     else trackIndex = 0;
@@ -134,7 +148,7 @@ function previousTrack() {
     if (trackIndex > 0) {
         trackIndex -= 1;
     }
-    else trackIndex = trackList.length
+    else trackIndex = trackList.length - 1;
 
     loadTrack(trackIndex);
     playTrack();
@@ -149,9 +163,9 @@ function seekTo() {
 }
 
 function seekUpdate() {
-    if (!isNaN(currentTrack.duration)) {
+    if (!isNaN(currentTrack.duration)){
         seekPosition = currentTrack.currentTime * (100 / currentTrack.duration);
-        $(".slider-color").attr("background", "linear-gradient(to right, rgb(179, 171, 138)" + seekPosition + "% , transparent" (100 - seekPosition) + "%");
+        $(".slider-color").attr("background", "linear-gradient(to right, rgb(179, 171, 138)" + seekPosition + "% , transparent" + (100 - seekPosition) + "%");
     }
 
     let currentMinutes = Math.floor(currentTrack.currentTime / 60);
@@ -173,6 +187,11 @@ function seekUpdate() {
     }
     $(currTime).text(currentMinutes + ":" + currentSeconds);
     $(endTime).text(durationMinutes + ":" + durationSeconds);
-    // i guess this is all. i'll check if it works tmr :))) im so sleepy but i still need to work on 
-    // my other project which is a macropad. sigh.
+
+    if (currTime < endTime) {
+        seekPosition = currentTrack.currentTime * (100 / currentTrack.duration);
+        $(".slider-color").attr("background", "linear-gradient(to right, rgb(179, 171, 138)" + 20 + "% , transparent" + 70 + "%");
+    }
 }
+
+loadTrack(trackIndex);
