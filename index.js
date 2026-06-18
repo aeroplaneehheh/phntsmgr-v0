@@ -85,6 +85,7 @@ $(function() {
 })
 
 function loadTrack(trackIndex) {
+    debugger;
     clearInterval(updateTimer);
     resetValues();
 
@@ -106,7 +107,6 @@ function loadTrack(trackIndex) {
     $(playPauseBtn).click(function() {
        playPauseTrack();
     })
-    
 }
 
 function resetValues() {
@@ -132,16 +132,24 @@ function pauseTrack() {
     currentTrack.pause();
     isPlaying = false;
     $(playPauseBtn).attr("src", 'assets/play.png');
+    $(playPauseBtn).click(function() {
+       playPauseTrack();
+    })
 }
 
 function nextTrack() {
     if (trackIndex < trackList.length - 1) {
         trackIndex += 1;
     }
-    else trackIndex = 0;
+    else {
+        trackIndex = 0;
+    }
 
     loadTrack(trackIndex);
     playTrack();
+    $(playPauseBtn).click(function() {
+       playPauseTrack();
+    })
 }
 
 function previousTrack() {
@@ -152,11 +160,10 @@ function previousTrack() {
 
     loadTrack(trackIndex);
     playTrack();
+    $(playPauseBtn).click(function() {
+       playPauseTrack();
+    })
 }
-
-
-// current time-- change the current time into a percentage and change
-// the linear gradient with that, subtract and add continuously???
 
 function seekTo() {
     seekto = currentTrack.duration * (currentTrack.currentTime / 100);
