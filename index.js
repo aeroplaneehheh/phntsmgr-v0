@@ -90,6 +90,8 @@ function loadTrack(trackIndex) {
     debugger;
     currentTrack.src = trackList[trackIndex].path;
     currentTrack.load();
+
+    updateTimer = setInterval(seekUpdate, 1000);
     
     currentTrack.addEventListener('loadedmetadata', (event) => {
         console.log("Loadedmetadata has been fired.")
@@ -109,21 +111,55 @@ function resetValues() {
 }
 
 function handlePlay() {
-    $(playPauseBtn).click(function() {
-        loadTrack(trackIndex);
+    loadTrack(trackIndex);
+
+    $(".play_pause_btn").click(function() {
         if (!isPlaying) {
-            isPlaying == true;
-            playPauseBtn.setAttribute("src", "assets/pause.png");
+            isPlaying = true;
             currentTrack.play();
+            $(".play_pause_btn").attr("src", "assets/pause.png");
         }
-        else {
-            isPlaying == false;
-            playPauseBtn.setAttribute("src", "assets/play.png");
+        else if (isPlaying) {
+            isPlaying = false;
             currentTrack.pause();
+            $(".play_pause_btn").attr("src", "assets/play.png");
         }
     });
 
     $(".forward").click(function() {
+        // 0-6
+        if (trackIndex < trackList.length - 1) {
+            $(".window > p").text((trackIndex + 1) + "/" + trackList.length);
+            trackIndex += 1;
+        }
+        // 7
+        else {
+            $(".window > p").text((trackIndex + 1) + "/" + trackList.length);
+            trackIndex = 0;
+        }
+        loadTrack(trackIndex);
+        isPlaying = true;
+        currentTrack.play();
+        $(".play_pause_btn").attr("src", "assets/pause.png");
+    });
+
+    $(".backward").click(function() {
+        // 7-1
+        if (trackIndex > 0) {
+            $(".window > p").text((trackIndex - 1) + "/" + trackList.length);
+            trackIndex -= 1;
+        }
+        // 0
+        else {
+            trackIndex = trackList.length - 1
+        }
+        loadTrack(trackIndex);
+        isPlaying = true;
+        currentTrack.play()
+        $(".play_pause_btn").attr("src", "assets/pause.png");
+    });
+
+    currentTrack.addEventListener("ended", function() {
         if (trackIndex < trackList.length - 1) {
             trackIndex += 1;
         }
@@ -131,21 +167,10 @@ function handlePlay() {
             trackIndex = 0;
         }
         loadTrack(trackIndex);
-        isPlaying == true;
-    })
-
-    $(".backward").click(function() {
-        if (trackIndex > 0) {
-            trackIndex -= 1;
-        }
-        else {
-            trackIndex = trackList.length - 1
-        }
-        loadTrack(trackIndex);
-        isPlaying = true;
-    })
+        isPlaying = false;
+        $(".play_pause_btn").attr("src", "assets/play.png");
+    });
 }
-
 
 function seekTo() {
     seekto = currentTrack.duration * (currentTrack.currentTime / 100);

@@ -47,6 +47,12 @@ body {
     font-size: 2rem;
 }
 
+.window > p {
+    margin: 10px;
+    font-family: 'Mondwest';
+    margin-right: auto;
+}
+
 button {
     font-family: 'Mondwest';
     background-color: rgb(73, 58, 90);
@@ -65,6 +71,7 @@ button {
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    margin-right: 5px;
 }
 
 .album-cover {
@@ -232,7 +239,7 @@ img {
 
 .play {
     display: flex;
-    transform: scale(0.6);
+    transform: scale(0.5);
     justify-content: center;
     margin-top: -8%;
 }
