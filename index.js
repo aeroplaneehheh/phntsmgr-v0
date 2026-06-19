@@ -92,17 +92,10 @@ function loadTrack(trackIndex) {
     currentTrack.load();
 
     updateTimer = setInterval(seekUpdate, 1000);
-    
-    currentTrack.addEventListener('loadedmetadata', (event) => {
-        console.log("Loadedmetadata has been fired.")
-    });
-
-    currentTrack.addEventListener('loadeddata', (event) => {
-        console.log("Loadeddata has been fired.")
-    });
 
     $(trackName).text(trackList[trackIndex].name);
     $(artist).text(trackList[trackIndex].artist);
+    $(".window > p").text((trackIndex + 1) + "/" + trackList.length);
 }
 
 function resetValues() {
@@ -129,12 +122,10 @@ function handlePlay() {
     $(".forward").click(function() {
         // 0-6
         if (trackIndex < trackList.length - 1) {
-            $(".window > p").text((trackIndex + 1) + "/" + trackList.length);
             trackIndex += 1;
         }
         // 7
         else {
-            $(".window > p").text((trackIndex + 1) + "/" + trackList.length);
             trackIndex = 0;
         }
         loadTrack(trackIndex);
@@ -146,7 +137,6 @@ function handlePlay() {
     $(".backward").click(function() {
         // 7-1
         if (trackIndex > 0) {
-            $(".window > p").text((trackIndex - 1) + "/" + trackList.length);
             trackIndex -= 1;
         }
         // 0
