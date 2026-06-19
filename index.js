@@ -85,28 +85,22 @@ $(function() {
 })
 
 function loadTrack(trackIndex) {
-    debugger;
     clearInterval(updateTimer);
     resetValues();
-
+    debugger;
     currentTrack.src = trackList[trackIndex].path;
     currentTrack.load();
+    
+    currentTrack.addEventListener('loadedmetadata', (event) => {
+        console.log("Loadedmetadata has been fired.")
+    });
+
+    currentTrack.addEventListener('loadeddata', (event) => {
+        console.log("Loadeddata has been fired.")
+    });
+
     $(trackName).text(trackList[trackIndex].name);
     $(artist).text(trackList[trackIndex].artist);
-
-    updateTimer = setInterval(seekUpdate, 500);
-    $(currentTrack).on("ended", function() {
-        nextTrack();
-    });
-    $(".backward").click(function() {
-        previousTrack();
-    })
-    $(".forward").click(function() {
-        nextTrack();
-    })
-    $(playPauseBtn).click(function() {
-       playPauseTrack();
-    })
 }
 
 function resetValues() {
@@ -114,56 +108,44 @@ function resetValues() {
     $(endTime).text("00:00");
 }
 
-function playPauseTrack() {
-    if (! isPlaying){
-        playTrack();
-    }
-    else pauseTrack();
-    console.log(isPlaying);
-}
-
-function playTrack() {
-    currentTrack.play();
-    isPlaying = true;
-    $(playPauseBtn).attr("src", "assets/pause.png");
-}
-
-function pauseTrack() {
-    currentTrack.pause();
-    isPlaying = false;
-    $(playPauseBtn).attr("src", 'assets/play.png');
+function handlePlay() {
     $(playPauseBtn).click(function() {
-       playPauseTrack();
+        loadTrack(trackIndex);
+        if (!isPlaying) {
+            isPlaying == true;
+            playPauseBtn.setAttribute("src", "assets/pause.png");
+            currentTrack.play();
+        }
+        else {
+            isPlaying == false;
+            playPauseBtn.setAttribute("src", "assets/play.png");
+            currentTrack.pause();
+        }
+    });
+
+    $(".forward").click(function() {
+        if (trackIndex < trackList.length - 1) {
+            trackIndex += 1;
+        }
+        else {
+            trackIndex = 0;
+        }
+        loadTrack(trackIndex);
+        isPlaying == true;
+    })
+
+    $(".backward").click(function() {
+        if (trackIndex > 0) {
+            trackIndex -= 1;
+        }
+        else {
+            trackIndex = trackList.length - 1
+        }
+        loadTrack(trackIndex);
+        isPlaying = true;
     })
 }
 
-function nextTrack() {
-    if (trackIndex < trackList.length - 1) {
-        trackIndex += 1;
-    }
-    else {
-        trackIndex = 0;
-    }
-
-    loadTrack(trackIndex);
-    playTrack();
-    $(playPauseBtn).click(function() {
-       playPauseTrack();
-    })
-}
-
-function previousTrack() {
-    if (trackIndex > 0) {
-        trackIndex -= 1;
-    }
-    else trackIndex = trackList.length - 1;
-
-    loadTrack(trackIndex);
-    playTrack();
-    $(playPauseBtn).click(function() {
-       playPauseTrack();
-    })
-}
 
 function seekTo() {
     seekto = currentTrack.duration * (currentTrack.currentTime / 100);
@@ -201,4 +183,4 @@ function seekUpdate() {
     }
 }
 
-loadTrack(trackIndex);
+handlePlay();
