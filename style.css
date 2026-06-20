@@ -15,7 +15,6 @@
 
 body {
     background-color: rgb(179, 171, 138);
-    /* cursor: url('./assets/cursor-hover.png'), auto; */
 }
 
 #music_player {
@@ -228,12 +227,14 @@ img {
 
 .slider > p {
     margin-top: -0.05%;
+    width: 30px;
 }
 
 .slider-color {
     width: 80%;
     height: 100%;
-    background: linear-gradient(to right, rgb(179, 171, 138) 0%, transparent 100%);
+    margin: 0px 6px;
+    background: linear-gradient(to right, rgb(179, 171, 138) 0%, transparent 0%);
     outline: 2px solid;
 }
 

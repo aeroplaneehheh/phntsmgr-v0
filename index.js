@@ -145,7 +145,7 @@ function handlePlay() {
         }
         loadTrack(trackIndex);
         isPlaying = true;
-        currentTrack.play()
+        currentTrack.play();
         $(".play_pause_btn").attr("src", "assets/pause.png");
     });
 
@@ -157,8 +157,9 @@ function handlePlay() {
             trackIndex = 0;
         }
         loadTrack(trackIndex);
-        isPlaying = false;
-        $(".play_pause_btn").attr("src", "assets/play.png");
+        isPlaying = true;
+        currentTrack.play();
+        $(".play_pause_btn").attr("src", "assets/pause.png");
     });
 }
 
@@ -167,11 +168,6 @@ function seekTo() {
 }
 
 function seekUpdate() {
-    if (!isNaN(currentTrack.duration)){
-        seekPosition = currentTrack.currentTime * (100 / currentTrack.duration);
-        $(".slider-color").attr("background", "linear-gradient(to right, rgb(179, 171, 138)" + seekPosition + "% , transparent" + (100 - seekPosition) + "%");
-    }
-
     let currentMinutes = Math.floor(currentTrack.currentTime / 60);
     let currentSeconds = Math.floor(currentTrack.currentTime - currentMinutes * 60);
     let durationMinutes = Math.floor(currentTrack.duration / 60);
@@ -192,10 +188,8 @@ function seekUpdate() {
     $(currTime).text(currentMinutes + ":" + currentSeconds);
     $(endTime).text(durationMinutes + ":" + durationSeconds);
 
-    if (currTime < endTime) {
-        seekPosition = currentTrack.currentTime * (100 / currentTrack.duration);
-        $(".slider-color").attr("background", "linear-gradient(to right, rgb(179, 171, 138)" + 20 + "% , transparent" + 70 + "%");
-    }
+    seekPosition = currentTrack.currentTime * (100 / currentTrack.duration);
+    $(".slider-color").css("background", "linear-gradient(to right, rgb(179, 171, 138) " + seekPosition + "%, transparent " + seekPosition + "%)");
 }
 
 handlePlay();
