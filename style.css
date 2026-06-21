@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'Mondwest';
-  src: url('assets/Bitmap Font Pack/PPMondwest-Regular.otf') format('opentype');
+  src: url('assets/Bitmap Font Pack/PPMondwest-Regular.woff2') format('opentype');
 }
 
 @font-face {
@@ -130,7 +130,7 @@ h2 {
             display: grid;
             margin: 0.5em;
             /* background-color: rgb(174, 173, 174); */
-            grid-template-rows: 1fr 4% 2fr 1fr 2fr 2fr 2fr;
+            grid-template-rows: 1fr 4% 2fr 4% 2fr 2fr 2fr;
         }
 
         .div2 {
@@ -160,14 +160,17 @@ h2 {
     }
 
 .div4{
-    display: grid;
-    place-content: center;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .div5 {
     display: grid;
-    place-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .div6 {
@@ -243,4 +246,23 @@ img {
     transform: scale(0.5);
     justify-content: center;
     margin-top: -8%;
+}
+
+.scale {
+    transform: scale(0.7);
+}
+
+.box {
+    background-color: rgb(73, 58, 90);
+    position: relative;
+    height: 23%;
+    width: 9%;
+    border-radius: 10%;
+}
+
+
+.rectangle {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(73, 58, 90);
 }

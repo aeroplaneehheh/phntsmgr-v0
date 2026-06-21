@@ -87,7 +87,6 @@ $(function() {
 function loadTrack(trackIndex) {
     clearInterval(updateTimer);
     resetValues();
-    debugger;
     currentTrack.src = trackList[trackIndex].path;
     currentTrack.load();
 
