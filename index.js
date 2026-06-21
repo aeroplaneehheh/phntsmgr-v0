@@ -192,4 +192,8 @@ function seekUpdate() {
     $(".slider-color").css("background", "linear-gradient(to right, rgb(179, 171, 138) " + seekPosition + "%, transparent " + seekPosition + "%)");
 }
 
+$(".web").click(function() {
+    window.location.href = "https://aeroplaneehheh.github.io/aeros-website/"
+})
+
 handlePlay();
