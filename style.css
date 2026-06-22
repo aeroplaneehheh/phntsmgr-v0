@@ -17,6 +17,11 @@ body {
     background-color: rgb(179, 171, 138);
 }
 
+::selection {
+    background-color: rgb(179, 171, 138);
+    color: rgb(73, 58, 90);
+}
+
 #music_player {
     display: grid;
     position: fixed;
@@ -97,7 +102,7 @@ h2 {
 #container {
     display: grid;
     gap: 0;
-    grid-template-rows: 5% 4% 2fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 5% 4% 2fr 7% 1fr 1fr 1fr;
 }
 
 .div1{
@@ -255,7 +260,7 @@ img {
 .box {
     background-color: rgb(73, 58, 90);
     position: relative;
-    height: 23%;
+    height: 58%;
     width: 9%;
     border-radius: 10%;
 }
@@ -265,4 +270,21 @@ img {
     height: 100%;
     width: 100%;
     background-color: rgb(73, 58, 90);
+}
+
+.hover-box {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    position: absolute;
+    background-color: rgb(73, 58, 90);
+    font-family: 'Mondwest';
+    height: 250%;
+    width: 200%;
+    left: -50%;
+    top: 110%;
+    border-radius: 5%;
+    justify-content: center;
+    text-align: justify;
+    color: rgb(179, 171, 138);
+    padding: 20%;
 }
