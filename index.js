@@ -9,6 +9,11 @@ let isPlaying = false;
 let updateTimer;
 let currentTrack = document.createElement('audio');
 
+$(function() {
+    $("#music_player").hide()
+});
+$(".hover-box").hide();
+
 let trackList = [
     {
         name: "Looping the Rooms",
@@ -57,9 +62,6 @@ if (typeof jQuery.ui !== 'undefined') {
 } else {
     console.log("jQuery UI is NOT loaded");
 }
-$( function() {
-    $("#music_player").hide()
-})
 $(".window>button").click(function() {
     $("#music_player").hide();
 })
@@ -194,5 +196,18 @@ function seekUpdate() {
 $(".web").click(function() {
     window.location.href = "https://aeroplaneehheh.github.io/aeros-website/"
 })
+
+$(".box").hover(
+    function() {
+        let index = $(this).index(".box")
+        $(".hover-box").eq(index).show();
+        console.log(index);
+        $(this).css("background-color", "rgb(48, 38, 59)")
+    },
+    function() {
+        $(".hover-box").hide();
+        $(".box").css("background-color", "rgb(73, 58, 90)")
+    }
+)
 
 handlePlay();
