@@ -5,7 +5,13 @@ const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(httpServer, {
+    cors: {
+        origin: process.env.FRONTEND_URL ||'*',
+        methods: ['GET', 'POST'],
+    },
+    transports: ['polling', 'websocket']
+})
 
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname)));
@@ -24,8 +30,6 @@ io.on('connection', (socket) => {
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-})
-
-module.exports = app;
+httpServer.listen(port, '0.0.0.0', () => {
+    console.log(`Server running on port ${port}.`)
+});
