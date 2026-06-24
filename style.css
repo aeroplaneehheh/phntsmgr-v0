@@ -102,7 +102,7 @@ h2 {
 #container {
     display: grid;
     gap: 0;
-    grid-template-rows: 5% 4% 2fr 7% 1fr 1fr 1fr;
+    grid-template-rows: 5% 4% 2fr 7% 1fr 1fr 1fr 1fr;
 }
 
 .div1{
@@ -130,41 +130,7 @@ h2 {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media (max-width: 680px) {
-        #container {
-            display: grid;
-            margin: 0.5em;
-            /* background-color: rgb(174, 173, 174); */
-            grid-template-rows: 1fr 4% 2fr 4% 2fr 2fr 2fr;
-        }
-
-        .div2 {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: start;
-            font-family: 'Mondwest';
-            color: rgb(73, 58, 90);
-            max-height: 100%;
-        }
-
-        .row {
-            font-size: 0.9rem;
-            height: 70%;
-        }
-        
-        #music-player {
-            min-width: 90%;
-            max-height: 100px;
-        }
-
-        .play {
-            display: flex;
-            transform: scale(0.2);
-            margin-top: 0;
-        }
-    }
-
-.div4{
+.div4 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -172,18 +138,93 @@ h2 {
 
 .div5 {
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.announcements {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 90%;
+    width: 65%;
+    background-color: rgb(73, 58, 90);
+    color: rgb(179, 171, 138);
+}
+
+.aSmallRectangle {
+    height: 80%;
+    width: 95%;
+    background-color: rgb(71, 86, 71);
+    justify-content: center;
+    align-content: start;
+    text-align: center;
+    border: 2px solid rgb(179, 171, 138);
+    margin-top: 3%;
+}
+
+.aLargeRectangle {
+    display: grid;
+    height: 90%;
+    width: 95%;
+    background-color: rgb(71, 86, 71);
+    border: 2px solid rgb(179, 171, 138);
+    overflow: scroll;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    background-color: rgb(71, 86, 71);
+    color: rgb(179, 171, 138);
+    margin: 10%;
+    text-align: justify;
+    border-top: 3px solid rgb(179, 171, 138);
+    font-family: 'Mondwest';
+}
+
+.chat {
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 90%;
+    width: 50%;
+    background-color: rgb(73, 58, 90);
+    color: rgb(179, 171, 138);
+}
+
+#form {
+    display: flex;
+    height: 50%;
+    width: 90%;
+    margin-top: 10px;
+}
+
+#input {
+    height: 80%;
+    width: 100%;
+    font-family: 'Mondwest';
+}
+
+.div6 {
+    display: grid;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
 }
 
-.div6 {
+.div7 {
     display: grid;
     place-content: center;
 }
 
-.div7 {
+.div8 {
     display: grid;
     place-content: center;
 }
@@ -260,9 +301,10 @@ img {
 .box {
     background-color: rgb(73, 58, 90);
     position: relative;
-    height: 58%;
+    height: 42%;
     width: 9%;
     border-radius: 10%;
+    border: 2px solid rgb(48, 38, 59);
 }
 
 
@@ -287,4 +329,39 @@ img {
     text-align: justify;
     color: rgb(179, 171, 138);
     padding: 20%;
+    border: 2px solid rgb(48, 38, 59);
 }
+
+@media (max-width: 680px) {
+        #container {
+            display: grid;
+            margin: 0.5em;
+            /* background-color: rgb(174, 173, 174); */
+            grid-template-rows: 1fr 4% 2fr 4% 2fr 2fr 2fr;
+        }
+
+        .div2 {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: start;
+            font-family: 'Mondwest';
+            color: rgb(73, 58, 90);
+            max-height: 100%;
+        }
+
+        .row {
+            font-size: 0.9rem;
+            height: 70%;
+        }
+        
+        #music-player {
+            min-width: 90%;
+            max-height: 100px;
+        }
+
+        .play {
+            display: flex;
+            transform: scale(0.2);
+            margin-top: 0;
+        }
+    }
