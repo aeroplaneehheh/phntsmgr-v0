@@ -1,0 +1,3 @@
+https://github.com/aeroplaneehheh/phntsmgr-v0 {
+    reverse_proxy localhost:3000
+}
