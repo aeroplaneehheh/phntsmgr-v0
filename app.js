@@ -5,12 +5,19 @@ const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+    path: "/phntsmgr-v0/socket.io",
+    cors: {
+        origin: "https://aeroplaneehheh.github.io",
+        methods: ["GET", "POST"]
+    }
+}
+);
 
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname)));
 app.get('/', (req, res) => {
-;    res.sendFile(path.join(__dirname, '/index.html'));
+;    res.sendFile(path.join(__dirname, 'index.html'));
 });
 io.on('connection', (socket) => {
     console.log("A user has connected.");

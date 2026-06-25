@@ -212,7 +212,9 @@ $(".box").hover(
 
 handlePlay();
 
-const socket = io();
+const socket = io("https://aeroplaneehheh.github.io", {
+    path: "/phntsmgr-v0/socket.io"
+});
 const form = document.getElementById("form");
 const input = document.getElementById("input");
 const messages = document.getElementById("messages");

@@ -198,6 +198,13 @@ h2 {
     color: rgb(179, 171, 138);
 }
 
+#messages {
+    display: flex;
+    justify-content: start;
+    width: 80%;
+    margin: 2%;
+}
+
 #form {
     display: flex;
     height: 50%;
