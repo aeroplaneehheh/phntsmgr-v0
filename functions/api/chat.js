@@ -5,7 +5,7 @@ export async function onRequest(context) {
         return new Response("Expected Upgrade: websocket", { status: 426});
     }
 
-    const [client, server] = Object.values(new WebSocketPair);
+    const [client, server] = Object.values(new WebSocketPair());
 
     server.accept();
 
