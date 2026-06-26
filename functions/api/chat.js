@@ -2,7 +2,7 @@ export async function onRequest(context) {
     const upgradeHeader = context.request.headers.get("Upgrade");
 
     if (!upgradeHeader || upgradeheader !== "websocket") {
-        return new Response("Expected Upgrade: websocket", { status: 426});
+        return new Response("Expected Upgrade: websocket", { status: 426 });
     }
 
     const [client, server] = Object.values(new WebSocketPair());

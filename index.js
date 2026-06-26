@@ -212,7 +212,8 @@ $(".box").hover(
 
 handlePlay();
 
-const socket = new WebSocket("https://phntsmgr-v0.pages.dev")
+const socketProtocol = window.location.protocol === "https:" ? "wss://" : "ws://";
+const socket = new WebSocket(`${socketProtocol}${window.location.host}/api/chat`);
 
 const form = document.getElementById("form");
 const input = document.getElementById("input");
