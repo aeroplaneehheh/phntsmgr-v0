@@ -1,2 +1,2 @@
 # phntsmgr-v0
-upcoming indie game
+upcoming website for an indie game.

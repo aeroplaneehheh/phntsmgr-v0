@@ -212,9 +212,8 @@ $(".box").hover(
 
 handlePlay();
 
-const socket = io("https://aeroplaneehheh.github.io", {
-    path: "/phntsmgr-v0/socket.io"
-});
+const socket = new WebSocket("https://phntsmgr-v0.pages.dev")
+
 const form = document.getElementById("form");
 const input = document.getElementById("input");
 const messages = document.getElementById("messages");
@@ -222,15 +221,15 @@ const messages = document.getElementById("messages");
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const message = input.value.trim();
-    if (message) {
-        socket.emit('chat message', message);
+    if (message && socket.readyState === WebSocket.OPEN) {
+        socket.send(message);
         input.value = '';
     }
 });
 
-socket.on('chat message', (msg) => {
+socket.addEventListener('message', (e) => {
     const item = document.createElement('ul');
-    item.textContent = msg;
+    item.textContent = event.data;
     messages.appendChild(item);
     messages.scrollTop = messages.scrollHeight;
 })

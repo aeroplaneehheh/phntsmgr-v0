@@ -1,3 +1,0 @@
-aeroplaneehheh.github.io {
-	reverse_proxy localhost:3000 /socket.io/* localhost: 3000
-}
