@@ -229,7 +229,7 @@ form.addEventListener('submit', (e) => {
         input.value = '';
     } 
     else {
-        console.warn("Scoket is not open.");
+        console.warn("Socket is not open.");
     }
 });
 
