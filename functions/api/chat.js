@@ -9,7 +9,7 @@ export async function onRequest(context) {
 
     server.accept();
 
-    ccontext.waitUntil((async () => {
+    context.waitUntil((async () => {
         try {
             server.addEventListener("message", (e) => {
                 console.log("Message received on edge: ", e.data);
