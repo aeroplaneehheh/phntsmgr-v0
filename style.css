@@ -204,6 +204,7 @@ h2 {
     justify-content: start;
     width: 80%;
     margin: 2%;
+    overflow-wrap: break-word;
 }
 
 #form {
@@ -216,6 +217,7 @@ h2 {
 #input {
     height: 80%;
     width: 100%;
+    overflow: hidden;
     font-family: 'Mondwest';
 }
 
