@@ -201,7 +201,7 @@ h2 {
 #messages {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-self: start;
     align-self: start;
     max-width: 75%;
     margin: 1%;
@@ -212,7 +212,7 @@ h2 {
 #form {
     display: flex;
     height: 50%;
-    width: 90%;
+    max-width: 90%;
     margin-top: 10px;
 }
 
