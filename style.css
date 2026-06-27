@@ -200,6 +200,7 @@ h2 {
 
 #messages {
     display: flex;
+    flex-direction: column;
     justify-content: start;
     width: 80%;
     margin: 2%;

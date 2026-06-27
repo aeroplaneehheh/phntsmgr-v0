@@ -57,11 +57,6 @@ let trackList = [
     }
 ];
 
-if (typeof jQuery.ui !== 'undefined') {
-    console.log("jQuery UI is loaded");
-} else {
-    console.log("jQuery UI is NOT loaded");
-}
 $(".window>button").click(function() {
     $("#music_player").hide();
 })
@@ -234,7 +229,7 @@ form.addEventListener('submit', (e) => {
 });
 
 socket.addEventListener('message', (e) => {
-    const item = document.createElement('li');
+    const item = document.createElement('ul');
     item.textContent = e.data;
     messages.appendChild(item);
     messages.scrollTop = messages.scrollHeight;
