@@ -13,7 +13,7 @@ export async function onRequest(context) {
         try {
             server.addEventListener("message", (e) => {
                 console.log("Message received on edge: ", e.data);
-                server.send(`Echo: ${e.data}`);
+                server.send(`${e.data}`);
             });
 
             await new Promise((resolve, reject) => {
@@ -24,7 +24,7 @@ export async function onRequest(context) {
             console.error("Internal Socket Lifecycle Error:", err);
         }
     })());
-    
+
     return new Response(null, {
         status: 101,
         webSocket: client
