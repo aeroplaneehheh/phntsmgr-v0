@@ -9,8 +9,8 @@ export async function onRequest(context) {
 
     server.accept();
 
-    server.addEventListener("message", (event) => {
-        console.log("Message received: ", event.data);
+    server.addEventListener("message", (e) => {
+        console.log("Message received: ", e.data);
         server.send(`Echo: ${event.data}`);
     });
 
