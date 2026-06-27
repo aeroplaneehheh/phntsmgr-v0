@@ -12,7 +12,7 @@ export async function onRequest(context) {
     context.waitUntil((async () => {
         try {
             server.addEventListener("message", (e) => {
-                console.log("Message received on edge: ", e.data);
+                console.log("Message received: ", e.data);
                 server.send(`${e.data}`);
             });
 
