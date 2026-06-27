@@ -190,8 +190,8 @@ h2 {
 .chat {
     display: grid;
     grid-template-rows: 1fr 4fr 1fr;
-    justify-items: center;
-    align-items: center;
+    justify-items: start;
+    align-items: start;
     height: 90%;
     width: 50%;
     background-color: rgb(73, 58, 90);
@@ -201,8 +201,6 @@ h2 {
 #messages {
     display: flex;
     flex-direction: column;
-    justify-self: start;
-    align-self: start;
     max-width: 75%;
     margin: 1%;
     box-sizing: border-box;
@@ -212,7 +210,7 @@ h2 {
 #form {
     display: flex;
     height: 50%;
-    max-width: 90%;
+    width: 90%;
     margin-top: 10px;
 }
 
