@@ -203,7 +203,7 @@ h2 {
     flex-direction: column;
     justify-self: start;
     align-self: start;
-    max-width: 90%;
+    max-width: 80%;
     margin: 2%;
     box-sizing: border-box;
     overflow-wrap: break-word;
