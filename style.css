@@ -201,10 +201,10 @@ h2 {
 #messages {
     display: flex;
     flex-direction: column;
-    justify-self: start;
+    justify-content: start;
     align-self: start;
-    max-width: 80%;
-    margin: 2%;
+    max-width: 75%;
+    margin: 1%;
     box-sizing: border-box;
     overflow-wrap: break-word;
 }
