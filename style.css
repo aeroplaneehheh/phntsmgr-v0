@@ -202,8 +202,9 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    width: 80%;
-    margin: 2%;
+    max-width: 70%;
+    margin: 1%;
+    box-sizing: border-box;
     overflow-wrap: break-word;
 }
 
