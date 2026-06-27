@@ -229,7 +229,7 @@ form.addEventListener('submit', (e) => {
 });
 
 socket.addEventListener('message', (e) => {
-    const item = document.createElement('ul');
+    const item = document.createElement('li');
     item.textContent = e.data;
     messages.appendChild(item);
     messages.scrollTop = messages.scrollHeight;
