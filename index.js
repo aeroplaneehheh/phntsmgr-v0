@@ -222,9 +222,14 @@ const messages = document.getElementById("messages");
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const message = input.value.trim();
+    console.log("Current socket state: ", socket.readyState);
+    console.log("Message: ", message);
     if (message && socket.readyState === WebSocket.OPEN) {
         socket.send(message);
         input.value = '';
+    } 
+    else {
+        console.warn("Scoket is not open.");
     }
 });
 
