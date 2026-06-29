@@ -207,30 +207,57 @@ $(".box").hover(
 
 handlePlay();
 
-const socketProtocol = window.location.protocol === "https:" ? "wss://" : "ws://";
-const socket = new WebSocket(`${socketProtocol}${window.location.host}/api/chat`);
+const IS_LOCAL = window.location.hostname === "localhost"  || window.location.hostname === "127.0.0.1";
+const LIVE_WORKER_DOMAIN = "https://chat.unluckyluckycloverrr.workers.dev";
+const LOCAL_WORKER_DOMAIN = "localhost:8787";
+const BACKEND_DOMAIN = IS_LOCAL ? LOCAL_WORKER_DOMAIN : LIVE_WORKER_DOMAIN;
+const WS_PROTOCOL = window.location.protocol === "https:" ? "wss://" : "ws://";
+let socket;
 
-const form = document.getElementById("form");
-const input = document.getElementById("input");
-const messages = document.getElementById("messages");
+function connectWebSocket() {
+    console.log(`Connecting to server : ${WS_PROTOCOL} ${BACKEND_DOMAIN}`);
+    socket = new WebSocket(`${WS_PROTOCOL} ${BACKEND_DOMAIN}`)
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+    socket.onopen = () => {
+        console.log("Connected successfully.")
+    }
+
+    socket.onmessage = (e) => {
+        appendMessageToUI(e.data);
+    }
+
+    socket.onclose = () => {
+        console.log("WebSocket disconnected D: Retrying again in 3 seconds.");
+        setTimeout(connectWebSocket, 3000);
+    }
+
+    socket.onerror = (error) => {
+        console.log("Error occured: ", error);
+    }
+}
+
+function sendMessage() {
+    const input = document.getElementById("input")
     const message = input.value.trim();
-    console.log("Current socket state: ", socket.readyState);
-    console.log("Message: ", message);
     if (message && socket.readyState === WebSocket.OPEN) {
         socket.send(message);
         input.value = '';
-    } 
-    else {
-        console.warn("Socket is not open.");
     }
-});
+}
 
-socket.addEventListener('message', (e) => {
-    const item = document.createElement('ul');
-    item.textContent = e.data;
-    messages.appendChild(item);
-    messages.scrollTop = messages.scrollHeight;
+function appendMessageToUI(text) {
+    const chat = document.getElementById("chat");
+    const messageElement = document.createElement("div");
+    messageElement.textContent = text;
+    chat.appendChild(messageElement);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("chat").innerHTML = "";
+    connectWebSocket();
+    document.getElementByClass("#form>button").addEventListener("click", sendMessage);
+    document.getElementById("input").addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendMessage();
+    })
 })

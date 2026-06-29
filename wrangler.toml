@@ -8,7 +8,7 @@ class_name = "chatRoom"
 
 [[migrations]]
 tag = "v1"
-new_classes = ["chatRoom"]
+new_sqlite_classes = ["chatRoom"]
 
 [[d1_databases]]
 binding = "DB"
