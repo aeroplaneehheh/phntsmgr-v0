@@ -220,6 +220,10 @@ h2 {
     font-family: 'Mondwest';
 }
 
+.ul {
+    font-family: 'Mondwest';
+}
+
 .div6 {
     display: flex;
     place-content: end;

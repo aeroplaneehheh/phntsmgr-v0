@@ -1,0 +1,16 @@
+name = "chat"
+main = "/functions/api/chat.js"
+compatibility_date = "2026-06-28"
+
+[[durable_objects.bindings]]
+name = "CHAT_ROOM"
+class_name = "chatRoom"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["chatRoom"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "chat-db"
+database_id = "73acae53-492d-4410-8124-9c5a5cf62fb8"
