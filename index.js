@@ -208,7 +208,7 @@ $(".box").hover(
 handlePlay();
 
 const IS_LOCAL = window.location.hostname === "localhost"  || window.location.hostname === "127.0.0.1";
-const LIVE_WORKER_DOMAIN = "https://chat.unluckyluckycloverrr.workers.dev";
+const LIVE_WORKER_DOMAIN = "chat.unluckyluckycloverrr.workers.dev";
 const LOCAL_WORKER_DOMAIN = "localhost:8787";
 const BACKEND_DOMAIN = IS_LOCAL ? LOCAL_WORKER_DOMAIN : LIVE_WORKER_DOMAIN;
 const WS_PROTOCOL = window.location.protocol === "https:" ? "wss://" : "ws://";
