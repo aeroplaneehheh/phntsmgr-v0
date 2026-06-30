@@ -230,7 +230,8 @@ h2 {
 }
 
 .nique-box {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: 80%;
     width: 70%;
     background-color: rgb(73, 58, 90);
@@ -244,7 +245,8 @@ h2 {
 }
 
 .hue-box {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: 80%;
     width: 70%;
     background-color: rgb(73, 58, 90);
@@ -258,8 +260,9 @@ h2 {
 }
 
 .ace-box {
-    display: flex;
+    display: grid;
     height: 80%;
+    grid-template-columns: 1fr 1fr;
     width: 70%;
     background-color: rgb(73, 58, 90);
     padding: 2%;
@@ -267,19 +270,11 @@ h2 {
 
 .quote {
     display: grid;
-    width: 50%;
+    width: 95%;
     font-family: 'Mondwest';
     font-size: 1.5em;
     text-align: justify;
     color: rgb(179, 171, 138);
-}
-
-.img-box {
-    position: relative;
-    background-color: rgb(179, 171, 138);
-    width: 45%;
-    height: 100%;
-    left: 5%;
 }
 
 img {
@@ -416,5 +411,29 @@ img {
             display: flex;
             transform: scale(0.2);
             margin-top: 0;
+        }
+
+        .nique-box {
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+            grid-template-columns: 1fr;
+            height: 80%;
+            width: 90%;
+        }
+
+        .hue-box {
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+            grid-template-columns: 1fr;
+            height: 80%;
+            width: 90%;
+        }
+
+        .ace-box {
+            display: grid;
+            grid-template-rows: 1fr 2fr;
+            grid-template-columns: 1fr;
+            height: 80%;
+            width: 90%;
         }
     }

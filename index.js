@@ -215,8 +215,8 @@ const WS_PROTOCOL = window.location.protocol === "https:" ? "wss://" : "ws://";
 let socket;
 
 function connectWebSocket() {
-    console.log(`Connecting to server : ${WS_PROTOCOL} ${BACKEND_DOMAIN}`);
-    socket = new WebSocket(`${WS_PROTOCOL} ${BACKEND_DOMAIN}`)
+    console.log(`Connecting to server : ${WS_PROTOCOL}${BACKEND_DOMAIN}`);
+    socket = new WebSocket(`${WS_PROTOCOL}${BACKEND_DOMAIN}`)
 
     socket.onopen = () => {
         console.log("Connected successfully.")
@@ -236,7 +236,8 @@ function connectWebSocket() {
     }
 }
 
-function sendMessage() {
+function sendMessage(e) {
+    if (e) e.preventDefault();
     const input = document.getElementById("input")
     const message = input.value.trim();
     if (message && socket.readyState === WebSocket.OPEN) {
@@ -256,7 +257,7 @@ function appendMessageToUI(text) {
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("chat").innerHTML = "";
     connectWebSocket();
-    document.getElementByClass("#form>button").addEventListener("click", sendMessage);
+    document.getElementById("send-btn").addEventListener("click", sendMessage);
     document.getElementById("input").addEventListener("keypress", (e) => {
         if (e.key === "Enter") sendMessage();
     })
