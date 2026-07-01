@@ -193,7 +193,7 @@ h2 {
     justify-items: start;
     align-items: start;
     height: 90%;
-    max-width: 530px;
+    max-width: 350px;
     min-width: 55%;
     max-height: 550px;
     background-color: rgb(73, 58, 90);
@@ -203,9 +203,10 @@ h2 {
 #messages {
     display: flex;
     flex-direction: column;
-    max-width: 85%;
+    max-width: 90%;
     box-sizing: border-box;
     overflow-wrap: break-word;
+    max-height: 100%;
 }
 
 #form {
