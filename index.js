@@ -240,15 +240,23 @@ function sendMessage(e) {
     if (e) e.preventDefault();
     const input = document.getElementById("input")
     const message = input.value.trim();
-    if (message && socket.readyState === WebSocket.OPEN) {
-        socket.send(message);
-        input.value = '';
+        if (message && socket.readyState === WebSocket.OPEN) {
+            if (message.toLowerCase() === "/permclearchatifyouseethisnoyoudidn't") {
+            const command = { action: "CLEAR_PERMANENTLY" };
+            socket.send(JSON.stringify(command));
+            input.value = '';
+            return;
+        }
+        else {
+            socket.send(message);
+            input.value = '';
+        }
     }
 }
 
 function appendMessageToUI(text) {
-    const chat = document.getElementById("chat");
-    const messageElement = document.createElement("div");
+    const chat = document.getElementById("messages");
+    const messageElement = document.createElement("ul");
     messageElement.textContent = text;
     chat.appendChild(messageElement);
     chat.scrollTop = chat.scrollHeight;
