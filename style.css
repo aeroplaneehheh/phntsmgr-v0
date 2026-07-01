@@ -193,8 +193,9 @@ h2 {
     justify-items: start;
     align-items: start;
     height: 90%;
-    max-width: 550px;
-    min-width: 50%;
+    max-width: 530px;
+    min-width: 55%;
+    max-height: 550px;
     background-color: rgb(73, 58, 90);
     color: rgb(179, 171, 138);
 }
@@ -202,7 +203,7 @@ h2 {
 #messages {
     display: flex;
     flex-direction: column;
-    max-width: 80%;
+    max-width: 85%;
     box-sizing: border-box;
     overflow-wrap: break-word;
 }
@@ -210,7 +211,7 @@ h2 {
 #form {
     display: flex;
     height: 50%;
-    width: 70%;
+    width: 80%;
     margin-top: 10px;
 }
 
@@ -221,7 +222,7 @@ h2 {
     font-family: 'Mondwest';
 }
 
-.messages {
+#messages {
     display: flex;
     flex-direction: column;
     text-align: justify;

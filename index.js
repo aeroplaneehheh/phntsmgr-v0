@@ -239,19 +239,19 @@ function connectWebSocket() {
 function sendMessage(e) {
     if (e) e.preventDefault();
     const input = document.getElementById("input")
-    const message = input.value.trim();
-        if (message && socket.readyState === WebSocket.OPEN) {
-            if (message.toLowerCase() === "/permclearchatifyouseethisnoyoudidn't") {
-            const command = { action: "CLEAR_PERMANENTLY" };
-            socket.send(JSON.stringify(command));
-            input.value = '';
-            return;
-        }
-        else {
-            socket.send(message);
-            input.value = '';
-        }
+    if (!input || !socket || socket.readyState !== WebSocket.OPEN) {
+        return;
     }
+    const message = input.value.trim();
+    if (!message) return;
+    if (message.toLowerCase() === "/permclearchatifyouseethisnoyoudidn't") {
+        const command = { action: "CLEAR_PERMANENTLY" };
+        socket.send(JSON.stringify(command));
+        input.value = '';
+        return;
+    }  
+    socket.send(message);
+    input.value = '';
 }
 
 function appendMessageToUI(text) {

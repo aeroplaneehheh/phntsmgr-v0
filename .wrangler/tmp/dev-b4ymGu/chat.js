@@ -43,6 +43,14 @@ var chatRoom = class {
     return new Response(null, { status: 101, webSocket: client });
   }
   async webSocketMessage(ws, message) {
+    try {
+      const data = JSON.parse(message);
+      if (data.action === "CLEAR_PERMANENTLY") {
+        await this.state.storage.deleteAll();
+        this.broadcast(JSON.stringify({ action: "CHAT_CLEARED" }));
+      }
+    } catch (err) {
+    }
     this.sql.exec("INSERT INTO messages (text) VALUES (?)", message);
     const allSockets = this.state.getWebSockets();
     for (const socket of allSockets) {
