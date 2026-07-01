@@ -255,7 +255,6 @@ function appendMessageToUI(text) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("form").innerHTML = "";
     connectWebSocket();
     document.getElementById("send-btn").addEventListener("click", sendMessage);
     document.getElementById("input").addEventListener("keypress", (e) => {
