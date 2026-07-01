@@ -183,6 +183,7 @@ h2 {
     background-color: rgb(71, 86, 71);
     color: rgb(179, 171, 138);
     margin: 10%;
+    margin-bottom: 0;
     text-align: justify;
     border-top: 3px solid rgb(179, 171, 138);
     font-family: 'Mondwest';
