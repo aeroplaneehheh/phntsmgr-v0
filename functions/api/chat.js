@@ -33,7 +33,7 @@ export class chatRoom {
         const [client, server] = new WebSocketPair();
         this.state.acceptWebSocket(server);
         
-        const cursor = this.sql.exac("SELECT text FROM messages ORDER BY id ASC");
+        const cursor = this.sql.exec("SELECT text FROM messages ORDER BY id ASC");
         for (const row of cursor) {
             server.send(row.text);
         }
@@ -41,7 +41,7 @@ export class chatRoom {
     };
 
     async webSocketMessage(ws, message) {
-        this.sql.exac("INSERT INTO messages (text) VALUES (?)", message);
+        this.sql.exec("INSERT INTO messages (text) VALUES (?)", message);
 
         const allSockets = this.state.getWebSockets();
         for (const socket of allSockets) {
