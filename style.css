@@ -224,6 +224,7 @@ h2 {
 }
 
 #messages {
+    font-family: 'Mondwest';
     display: flex;
     flex-direction: column;
     text-align: justify;
