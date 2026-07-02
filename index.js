@@ -216,7 +216,7 @@ let socket;
 
 function connectWebSocket() {
     console.log(`Connecting to server : ${WS_PROTOCOL}${BACKEND_DOMAIN}`);
-    socket = new WebSocket(`${WS_PROTOCOL}${BACKEND_DOMAIN}`)
+    socket = new WebSocket(`${WS_PROTOCOL}${BACKEND_DOMAIN}`);
 
     socket.onopen = () => {
         console.log("Connected successfully.")
@@ -238,27 +238,38 @@ function connectWebSocket() {
 
 function sendMessage(e) {
     if (e) e.preventDefault();
-    const input = document.getElementById("input")
+    const name = document.getElementById("username");
+    const input = document.getElementById("input");
     if (!input || !socket || socket.readyState !== WebSocket.OPEN) {
         return;
     }
+    const username = name.value.trim();
     const message = input.value.trim();
     if (!message) return;
+    if (username === '') {
+        username.textContent = "user that doesn't exist";
+    }
     if (message.toLowerCase() === "/permclearchatifyouseethisnoyoudidn't") {
         const command = { action: "CLEAR_PERMANENTLY" };
         socket.send(JSON.stringify(command));
         input.value = '';
         return;
-    }  
+    }
+    socket.send(username);
     socket.send(message);
     input.value = '';
 }
 
-function appendMessageToUI(text) {
+function appendMessageToUI(username, text) {
     const chat = document.getElementById("messages");
+    const textBox = document.createElement("div");
+    textBox.className = "textBox";
+    const userElement = document.createElement("ul");
     const messageElement = document.createElement("ul");
+    userElement.textContent = username;
     messageElement.textContent = text;
-    chat.appendChild(messageElement);
+    textBox.appendChild(userElement, messageElement);
+    chat.appendChild(textBox);
     chat.scrollTop = chat.scrollHeight;
 }
 
