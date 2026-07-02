@@ -158,21 +158,39 @@ h2 {
 .aSmallRectangle {
     height: 80%;
     width: 95%;
-    background-color: rgb(71, 86, 71);
+    background-color: rgb(179, 171, 138);
     justify-content: center;
     align-content: start;
     text-align: center;
     border: 2px solid rgb(179, 171, 138);
     margin-top: 3%;
+    color: rgb(73, 58, 90);
 }
 
 .aLargeRectangle {
     display: grid;
     height: 90%;
     width: 95%;
-    background-color: rgb(71, 86, 71);
+    background-color: rgb(179, 171, 138);
     border: 2px solid rgb(179, 171, 138);
     overflow: scroll;
+    color: rgb(73, 58, 90)
+}
+
+.aSmallRectangle > h2::selection {
+    color: rgb(179, 171, 138);
+    background-color: rgb(73, 58, 90);
+}
+
+.entry > h2 {
+    background-color: rgb(179, 171, 138);
+    color: rgb(73, 58, 90);
+    padding: 1%;
+}
+
+.entry > h2::selection {
+    color: rgb(179, 171, 138);
+    background-color: rgb(73, 58, 90);
 }
 
 .entry {
@@ -180,10 +198,11 @@ h2 {
     flex-direction: column;
     height: auto;
     width: auto;
-    background-color: rgb(71, 86, 71);
+    background-color: rgb(73, 58, 90);
     color: rgb(179, 171, 138);
-    margin: 10%;
-    margin-bottom: 0;
+    margin: 7%;
+    padding: 5%;
+    margin-bottom: 1%;
     text-align: justify;
     border-top: 3px solid rgb(179, 171, 138);
     font-family: 'Mondwest';
@@ -251,6 +270,11 @@ h2 {
     width: 70%;
     background-color: rgb(73, 58, 90);
     padding: 2%;
+}
+
+.nique-box > img {
+    position: relative;
+    top: -4%;
 }
 
 .div7 {
