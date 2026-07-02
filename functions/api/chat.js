@@ -3,7 +3,7 @@ export default {
         const upgradeHeader = request.headers.get("Upgrade");
         const id = env.CHAT_ROOM.idFromName("global_room");
         const roomStub = env.CHAT_ROOM.get(id);
-        return roomStub.fetch(request, env);
+        return roomStub.fetch(request);
     }
 };
 
