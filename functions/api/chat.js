@@ -1,7 +1,7 @@
 export default {
     async fetch(request, env, ctx) {
         const upgradeHeader = request.headers.get("Upgrade");
-        const id = env.CHAT_ROOM.idFromName("global_room");
+        const id = env.CHAT_ROOM.idFromName("global_room_v0");
         const roomStub = env.CHAT_ROOM.get(id);
         return roomStub.fetch(request);
     }
