@@ -49,7 +49,10 @@ export class chatRoom {
             if (data.action === "CLEAR_PERMANENTLY") {
                 await this.state.storage.deleteAll();
                 this.broadcast(JSON.stringify({ action: "CHAT_CLEARED" }));
+                return;
             }
+            if (data.username) username = data.username;
+            if (data.text) text = data.text;
         } catch(err) {
 
         }

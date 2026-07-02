@@ -224,10 +224,12 @@ h2 {
 #messages {
     display: flex;
     flex-direction: column;
-    max-width: 90%;
+    max-width: 80%;
+    min-width: 80%;
     box-sizing: border-box;
     overflow-wrap: break-word;
     max-height: 100%;
+    margin-left: 10%;
 }
 
 #username {
@@ -239,17 +241,12 @@ h2 {
     margin-left: 10%;
 }
 
-h4 {
-    height: fit-content; 
-    color: rgb(144, 144, 144);
-}
-
 .textBox {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 45% 1fr;
     height: 100%;
-    width: 100%;
+    width: fit-content;
     color: rgb(144, 144, 144);
 }
 

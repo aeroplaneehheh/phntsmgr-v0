@@ -223,7 +223,8 @@ function connectWebSocket() {
     }
 
     socket.onmessage = (e) => {
-        appendMessageToUI(e.data);
+        const data = JSON.parse(e.data);
+        appendMessageToUI(data.username || "Anonymous", data.text);
     }
 
     socket.onclose = () => {
@@ -246,17 +247,17 @@ function sendMessage(e) {
     const username = name.value.trim();
     const message = input.value.trim();
     if (!message) return;
-    if (username === '') {
-        username.textContent = "user that doesn't exist";
-    }
     if (message.toLowerCase() === "/permclearchatifyouseethisnoyoudidn't") {
         const command = { action: "CLEAR_PERMANENTLY" };
         socket.send(JSON.stringify(command));
         input.value = '';
         return;
     }
-    socket.send(username);
-    socket.send(message);
+    const payload = {
+        username: username,
+        text: message
+    }
+    socket.send(JSON.stringify(payload));
     input.value = '';
 }
 
@@ -264,11 +265,13 @@ function appendMessageToUI(username, text) {
     const chat = document.getElementById("messages");
     const textBox = document.createElement("div");
     textBox.className = "textBox";
-    const userElement = document.createElement("ul");
-    const messageElement = document.createElement("ul");
+    const userElement = document.createElement("div");
+    const messageElement = document.createElement("div");
+    messageElement.style.backgroundColor = "rgb(179, 171, 138)";
+    messageElement.style.color = "rgb(73, 58, 90)";
     userElement.textContent = username;
     messageElement.textContent = text;
-    textBox.appendChild(userElement, messageElement);
+    textBox.append(userElement, messageElement);
     chat.appendChild(textBox);
     chat.scrollTop = chat.scrollHeight;
 }
