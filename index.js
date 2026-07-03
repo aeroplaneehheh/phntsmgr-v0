@@ -287,7 +287,7 @@ window.addEventListener("DOMContentLoaded", () => {
 );
     document.getElementById("input").addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
-            if (document.getElementById("input").value.length > 10) {
+            if (document.getElementById("input").value.length > 200) {
                 haunt();
             } else {
                 sendMessage();
