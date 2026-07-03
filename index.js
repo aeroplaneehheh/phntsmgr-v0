@@ -281,6 +281,7 @@ window.addEventListener("DOMContentLoaded", () => {
     connectWebSocket();
     document.getElementById("send-btn").addEventListener("click", (e) => {
         if (document.getElementById("input").value.length > 10) {
+            e.preventDefault();
             haunt();
         } else sendMessage();
     }
@@ -288,6 +289,7 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("input").addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
             if (document.getElementById("input").value.length > 200) {
+                e.preventDefault();
                 haunt();
             } else {
                 sendMessage();
@@ -297,7 +299,6 @@ window.addEventListener("DOMContentLoaded", () => {
 })
 
 function haunt() {
-    preventDefault();
     const music = new Audio('assets/please_dont_leave.wav');
     const dontBreathe = new Audio('assets/why_are_you_here?.wav');
     dontBreathe.play();
