@@ -9,10 +9,10 @@ let isPlaying = false;
 let updateTimer;
 let currentTrack = document.createElement('audio');
 
-$(function() {
-    $("#music_player").hide()
-});
+
+$("#music_player").hide()
 $(".hover-box").hide();
+$("#warning").hide();
 
 let trackList = [
     {
@@ -246,6 +246,7 @@ function sendMessage(e) {
     }
     const username = name.value.trim();
     const message = input.value.trim();
+
     if (!message) return;
     if (message.toLowerCase() === "/permclearchatifyouseethisnoyoudidn't") {
         const command = { action: "CLEAR_PERMANENTLY" };
@@ -278,8 +279,31 @@ function appendMessageToUI(username, text) {
 
 window.addEventListener("DOMContentLoaded", () => {
     connectWebSocket();
-    document.getElementById("send-btn").addEventListener("click", sendMessage);
+    document.getElementById("send-btn").addEventListener("click", (e) => {
+        if (document.getElementById("input").value.length > 10) {
+            haunt();
+        } else sendMessage();
+    }
+);
     document.getElementById("input").addEventListener("keypress", (e) => {
-        if (e.key === "Enter") sendMessage();
+        if (e.key === "Enter") {
+            if (document.getElementById("input").value.length > 10) {
+                haunt();
+            } else {
+                sendMessage();
+            }
+        }
     })
 })
+
+function haunt() {
+    e.preventDefault();
+    const music = new Audio('assets/please_dont_leave.wav');
+    const dontBreathe = new Audio('assets/why_are_you_here?.wav');
+    dontBreathe.play();
+    music.play();
+}
+
+function warning() {
+    pass
+}
