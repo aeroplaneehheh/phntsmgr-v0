@@ -1,5 +1,6 @@
 # phntsmgr-v0
 This is the official website for my upcoming indie game PHNTSMGR ver.0.
+
 Link here: phntsmgr-v0.neocities.org
 
 # Why create... this?
@@ -23,12 +24,21 @@ PHTNSMGR ver.0 an upcoming psychological horror indie game, heavily inspired by 
 
 # SFX and music:
 Looping the Rooms by rusino: https://music.youtube.com/watch?v=icBDYkfxpMs&si=KMHikHmrhvErTT8e
+
 NO EMERGENCY DOOR by natori: https://music.youtube.com/watch?v=Ou-dGbXLZa8&si=N96skOcjqT5rIVCr
+
 it's just a burning memory by The Caretaker: https://music.youtube.com/watch?v=wPOF5FgG3DU&si=JAn0E0MBMEgmLiy4
+
 Creep by Radiohead: https://music.youtube.com/watch?v=9RfVp-GhKfs&si=ZcWZHC34eBDH1SaO
+
 in the pool by Kensuke Ushio: https://music.youtube.com/watch?v=Pzkm1EmgmMI&si=zCCObbswyjsEPUZj
+
 Minecraft by C418: https://music.youtube.com/watch?v=2S54N2mFV_A&si=AJrlaBVTn6zBGTgH
+
 No Surprises by Radiohead: https://music.youtube.com/watch?v=7374CZQoS2Y&si=yQVuCQOrc8JZbO0k
+
 Shoujo Rei by Mikito P: https://music.youtube.com/watch?v=b6abJ4NlzsE&si=usHU6qBcu3yRMq9T
+
 Heavy Breathing.wav by ceberation -- https://freesound.org/s/235519/ -- License: Attribution 3.0
+
 Creepy Lullaby, A.wav by InspectorJ -- https://freesound.org/s/412224/ -- License: Attribution 4.0

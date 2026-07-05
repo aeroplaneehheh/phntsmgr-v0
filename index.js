@@ -1,3 +1,4 @@
+$("#warning").hide();
 let trackName = $(".track_name");
 let artist = $(".artist");
 let playPauseBtn = $(".play_pause_btn");
@@ -8,11 +9,11 @@ let trackIndex = 0;
 let isPlaying = false;
 let updateTimer;
 let currentTrack = document.createElement('audio');
-
+let alert = false;
+let count = 0;
 
 $("#music_player").hide()
 $(".hover-box").hide();
-$("#warning").hide();
 
 let trackList = [
     {
@@ -280,7 +281,7 @@ function appendMessageToUI(username, text) {
 window.addEventListener("DOMContentLoaded", () => {
     connectWebSocket();
     document.getElementById("send-btn").addEventListener("click", (e) => {
-        if (document.getElementById("input").value.length > 10) {
+        if (document.getElementById("input").value.length > 200) {
             e.preventDefault();
             haunt();
         } else sendMessage();
@@ -290,10 +291,10 @@ window.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Enter") {
             if (document.getElementById("input").value.length > 200) {
                 e.preventDefault();
+                alert = true;
                 haunt();
-            } else {
-                sendMessage();
-            }
+                warning();
+            } else sendMessage();
         }
     })
 })
@@ -307,5 +308,9 @@ function haunt() {
 }
 
 function warning() {
-    pass
+    if (alert == true) {
+        $("#warning").show();
+    } else {
+        ("#warning").hide();
+    }
 }
