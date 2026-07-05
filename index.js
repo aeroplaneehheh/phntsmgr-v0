@@ -300,6 +300,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function haunt() {
     const music = new Audio('assets/please_dont_leave.wav');
+    music.volume = 0.5;
     const dontBreathe = new Audio('assets/why_are_you_here.wav');
     dontBreathe.play();
     music.play();
