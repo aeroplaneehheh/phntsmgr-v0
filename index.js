@@ -311,6 +311,18 @@ function warning() {
     if (alert == true) {
         $("#warning").show();
     } else {
-        ("#warning").hide();
+        $("#warning").hide();
     }
 }
+
+let clock = document.getElementById("clock");
+let date = new Date();
+let s = (date.getTime() / 1000);
+
+setInterval(() => {
+    let hours = (s / 24);
+    let minutes = (s / 24 * 60);
+    let seconds = s;
+    console.log(hours, minutes, seconds);
+    clock.innerText = `${hours}:${minutes}${seconds}`;
+}, 1000)
