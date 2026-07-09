@@ -316,13 +316,56 @@ function warning() {
 }
 
 let clock = document.getElementById("clock");
-let date = new Date();
-let s = (date.getTime() / 1000);
+let time = new Date();
+time.getTime();
+time.toLocaleString();
 
 setInterval(() => {
-    let hours = (s / 24);
-    let minutes = (s / 24 * 60);
-    let seconds = s;
-    console.log(hours, minutes, seconds);
-    clock.innerText = `${hours}:${minutes}${seconds}`;
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    if (hours < 10) {
+        hours = `0${hours}`
+    }
+    if (minutes < 10) {
+        minutes = `0${minutes}`
+    }
+    console.log(hours, minutes);
+    clock.innerText = `${hours}:${minutes}`;
 }, 1000)
+
+function getCoords() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    })
+}
+
+async function weather() {
+    try {
+        const position = await getCoords();
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const url =
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m&timezone=auto&forecast_days=1`;
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log(result);
+
+        return result.current.temperature_2m;
+    } catch(error) {
+        console.log(error.message);
+        return null;
+    }
+}
+
+window.onload = function() {
+    weather().then(function (temp) {
+        const temperature = document.getElementById("weather");
+        if (temp) {
+            temperature.innerText = `${temp}°C`;
+        }
+    })
+}
