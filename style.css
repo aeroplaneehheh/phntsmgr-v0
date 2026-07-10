@@ -315,6 +315,11 @@ h2 {
     padding: 2%;
 }
 
+.hue-box > img {
+    position: relative;
+    top: -4%;
+}
+
 .div8 {
     display: flex;
     justify-content: center;
